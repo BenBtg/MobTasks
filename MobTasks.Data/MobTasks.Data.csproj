@@ -8,4 +8,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MobTasks.Domain\MobTasks.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
