@@ -27,8 +27,6 @@ namespace MobTasks.ViewModels
                 Items.Add(newItem);
                 await DataStore.AddItemAsync(newItem);
             });
-
-            Shell.Current.GoToAsync("")
         }
 
         async Task ExecuteLoadItemsCommand()

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using MobTasks.Data;
 using System;
@@ -23,6 +24,13 @@ namespace MobTasks.ConsoleApp
             var context = new DataContext(connectionStringBuilder);
 
             context.Database.EnsureCreated();
+
+            using (var myContext = new DataContext())
+            {
+                System.IO.File.WriteAllText(System.IO.Path.GetTempFileName() + ".dgml",
+                    myContext.AsDgml(),
+                    System.Text.Encoding.UTF8);
+            }
 
             Console.WriteLine($"Found {context.Tasks.Count()} tasks.");
 
